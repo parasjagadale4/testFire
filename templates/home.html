@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            width: 400px;
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌤️ Weather Prediction</h1>
+        <form method="POST">
+            <input type="text" name="Temperature" placeholder="Temperature" required>
+            <input type="text" name="RH" placeholder="Relative Humidity" required>
+            <input type="text" name="Ws" placeholder="Wind Speed" required>
+            <input type="text" name="Rain" placeholder="Rainfall" required>
+            <input type="text" name="FFMC" placeholder="FFMC Index" required>
+            <input type="text" name="DMC" placeholder="DMC Index" required>
+            <input type="text" name="DC" placeholder="DC Index" required>
+            <input type="text" name="ISI" placeholder="ISI Index" required>
+            <input type="text" name="BUI" placeholder="BUI Index" required>
+            <input type="text" name="Classes" placeholder="Classes" required>
+            <input type="text" name="Region" placeholder="Region" required>
+            <button type="submit">🔮 Predict Weather</button>
+        </form>
+        {% if results is not none %}
+            <div class="result">Prediction: {{ results }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
